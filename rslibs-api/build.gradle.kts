@@ -1,9 +1,9 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
+    `java-library`
     id("xyz.jpenilla.run-paper") version "1.0.6"
     id("com.github.johnrengelman.shadow") version "7.1.2"
-    id("maven-publish")
     kotlin("jvm") version "1.8.0-Beta"
 }
 
@@ -84,12 +84,4 @@ compileKotlin.kotlinOptions {
 val compileTestKotlin: KotlinCompile by tasks
 compileTestKotlin.kotlinOptions {
     jvmTarget = "1.8"
-}
-
-publishing {
-    publications {
-        create<MavenPublication>("mavenJava") {
-            from(components["java"])
-        }
-    }
 }
