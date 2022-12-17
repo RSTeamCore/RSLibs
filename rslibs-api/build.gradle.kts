@@ -2,7 +2,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     `java-library`
-    id("maven-publish")
     kotlin("jvm") version "1.8.0-Beta"
 }
 
@@ -41,14 +40,6 @@ dependencies {
     //Paper 1.19
     compileOnly(dependencyNotation = "io.papermc.paper:paper-api:1.19.2-R0.1-SNAPSHOT")
     implementation(kotlin("stdlib-jdk8"))
-}
-
-publishing {
-    publications {
-        create<MavenPublication>("mavenJava") {
-            from(components["java"])
-        }
-    }
 }
 
 val compileKotlin: KotlinCompile by tasks

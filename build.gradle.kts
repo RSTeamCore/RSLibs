@@ -1,5 +1,6 @@
 plugins {
     `java-library`
+    id("maven-publish")
 }
 
 logger.lifecycle("""
@@ -12,3 +13,11 @@ logger.lifecycle("""
  Output files will be in [subproject]/build/libs
 *******************************************
 """)
+
+publishing {
+    publications {
+        create<MavenPublication>("mavenJava") {
+            from(components["java"])
+        }
+    }
+}
