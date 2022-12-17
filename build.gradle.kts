@@ -3,10 +3,6 @@ plugins {
     `java-library`
 }
 
-allprojects {
-    apply(plugin = "maven-publish")
-}
-
 logger.lifecycle("""
 *******************************************
  You are building RSLibs!
