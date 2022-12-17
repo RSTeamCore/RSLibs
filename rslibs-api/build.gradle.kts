@@ -58,10 +58,10 @@ tasks {
         filteringCharset = Charsets.UTF_8.name() // We want UTF-8 for everything
     }
     jar {
-        archiveFileName.set("${rootProject.name}-bukkit-no-shade-${rootProject.version}.${archiveExtension.getOrElse("jar")}")
+        archiveFileName.set("${rootProject.name}no-shade-${rootProject.version}.${archiveExtension.getOrElse("jar")}")
     }
     shadowJar {
-        archiveFileName.set("${rootProject.name}-bukkit-${rootProject.version}.${archiveExtension.getOrElse("jarinjar")}")
+        archiveFileName.set("${rootProject.name}-${rootProject.version}.${archiveExtension.getOrElse("jarinjar")}")
     }
     build {
         dependsOn(shadowJar)
