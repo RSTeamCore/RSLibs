@@ -2,7 +2,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     `java-library`
-    id("com.github.johnrengelman.shadow") version "7.1.2"
     kotlin("jvm") version "1.8.0-Beta"
 }
 
@@ -41,38 +40,6 @@ dependencies {
     //Paper 1.19
     compileOnly(dependencyNotation = "io.papermc.paper:paper-api:1.19.2-R0.1-SNAPSHOT")
     implementation(kotlin("stdlib-jdk8"))
-}
-
-tasks {
-    // Configure reobfJar to run when invoking the build task
-    withType<JavaCompile> {
-        options.encoding = "UTF-8"
-    }
-    compileJava {
-        options.encoding = Charsets.UTF_8.name() // We want UTF-8 for everything
-    }
-    javadoc {
-        options.encoding = Charsets.UTF_8.name() // We want UTF-8 for everything
-    }
-    processResources {
-        filteringCharset = Charsets.UTF_8.name() // We want UTF-8 for everything
-    }
-    jar {
-        archiveFileName.set("${rootProject.name}no-shade-${rootProject.version}.${archiveExtension.getOrElse("jar")}")
-    }
-    shadowJar {
-        archiveFileName.set("${rootProject.name}-${rootProject.version}.${archiveExtension.getOrElse("jarinjar")}")
-    }
-    build {
-        dependsOn(shadowJar)
-    }
-}
-
-tasks {
-    shadowJar {}
-    artifacts {
-        archives(shadowJar)
-    }
 }
 
 val compileKotlin: KotlinCompile by tasks
