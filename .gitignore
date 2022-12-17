@@ -35,3 +35,6 @@ out/
 /build/tmp/jar/MANIFEST.MF
 /build/libs/
 /build/kotlin/sessions/
+/rslibs-api/build/kotlin/
+/rslibs-api/build/tmp/
+/rslibs-api/build/classes/
