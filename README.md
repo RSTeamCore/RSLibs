@@ -19,7 +19,7 @@
 </repository>
 
 <dependency>
-    <groupId>net.ritasister</groupId>
+    <groupId>net.rsteamcore</groupId>
     <artifactId>RSLibs-api</artifactId>
     <version>version</version>
 </dependency>
@@ -33,6 +33,6 @@ repositories {
 }
 
 dependencies {
-    implementation("net.ritasister:RSLibs-api:VERSION")
+    implementation("net.rsteamcore:RSLibs-api:VERSION")
 }
 ```
