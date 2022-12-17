@@ -2,13 +2,14 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     `java-library`
-    id("maven-publish")
     kotlin("jvm") version "1.8.0-Beta"
 }
 
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 }
+
+defaultTasks("clean", "build")
 
 repositories {
     //CodeMc
@@ -46,7 +47,26 @@ dependencies {
 publishing {
     publications {
         create<MavenPublication>("mavenJava") {
+            artifactId = "RSLibs-api"
+            groupId = rootProject.group as String?
+            version = rootProject.version as String?
+
             from(components["java"])
+        }
+    }
+
+    repositories {
+        val mavenUrl = "https://repo.codemc.io/repository/maven-releases/"
+
+        maven(mavenUrl) {
+            val mavenUsername: String? by project
+            val mavenPassword: String? by project
+            if (mavenUsername != null && mavenPassword != null) {
+                credentials {
+                    username = mavenUsername
+                    password = mavenPassword
+                }
+            }
         }
     }
 }

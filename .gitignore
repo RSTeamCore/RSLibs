@@ -38,3 +38,8 @@ out/
 /rslibs-api/build/kotlin/
 /rslibs-api/build/tmp/
 /rslibs-api/build/classes/
+/build/publications/mavenJava/module.json
+/rslibs-api/build/publications/mavenJava/module.json
+/build/tmp/publishMavenJavaPublicationToMavenLocal/module-maven-metadata.xml
+/build/publications/mavenJava/pom-default.xml
+/rslibs-api/build/publications/mavenJava/pom-default.xml
